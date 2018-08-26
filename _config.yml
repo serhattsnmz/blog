@@ -2,7 +2,6 @@
 title:          Blog
 description:    "Serhat Sönmez - Blog"
 timezone:       "Europe/Istanbul"
-baseurl:        "/blog"
 
 # Author
 author:
