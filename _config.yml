@@ -16,6 +16,7 @@ markdown:       kramdown
 sass:
   sass_dir:     _sass
   style:        compressed
+picture_path:   "/assets/pictures/"
 
 # Gems
 plugins:
