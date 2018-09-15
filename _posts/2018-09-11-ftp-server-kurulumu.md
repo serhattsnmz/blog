@@ -1,6 +1,12 @@
 ---
-title: "Ftp Server Kurulumu - Google Cloud"
+title: "Ftp Server Kurulumu - 1 : Vsftp Kurulumu ve Yapılandırılması"
 ---
+
+Bu yazı dizimizde Google Cloud üzerinde `vsftpd` ile FTP server kurulumunu ve yönetimini inceleyeceğiz.
+
+[Ftp Server Kurulumu - 1 : vsftp Kurulumu ve Yapılandırılması](/2018-09-11/ftp-server-kurulumu){:target="_self"}
+
+[Ftp Server Kurulumu - 2 : FTP Kullanıcı Yönetimi](/2018-09-15/ftp-server-kurulumu-2){:target="_self"}
 
 ## ADIM 1 - Google Cloud Hesabından Yeni Bir Sanal Makine Oluşturma ve Bağlanma
 
@@ -151,6 +157,7 @@ anonymous_enable=NO
 local_enable=YES
 write_enable=YES
 chroot_local_user=YES
+local_umask=0012
 
 # FTP dosya yolu
 user_sub_token=$USER
