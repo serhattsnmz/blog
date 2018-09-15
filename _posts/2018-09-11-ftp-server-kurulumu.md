@@ -244,7 +244,7 @@ Protokoller :   tcp:40000-50000
 
 ```bash
 # Google Cloud üzerinden aldığımız public IP adres girilecek
-$ ftp -p <ip_address>
+$ ftp <ip_address>
 Connected to <ip_address>.
 220 (vsFTPd 3.0.3)
 
