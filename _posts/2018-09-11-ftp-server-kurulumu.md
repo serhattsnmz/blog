@@ -192,7 +192,7 @@ $ sudo systemctl restart vsftpd
 ## ADIM 6 - Google Cloud Firewall Ayarlarının Yapılması
 
 - Lokal firewall ayarlarının yanında, Google Cloud Firewall ayarlarından da kullanacağımız portlara izin vermemiz gerekmektedir.
-- `VPS Ağı > Güvenlik duvarı kuralları` sekmesinden aşağıdaki ayarlamaları yapıyoruz.
+- `VPC Ağı > Güvenlik duvarı kuralları` sekmesinden aşağıdaki ayarlamaları yapıyoruz.
 
 ```
 AD          :   FTP-Rule-1
