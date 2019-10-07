@@ -114,7 +114,7 @@ Eğer script dosyamızın her gün saat 01:00'de çalışmasını istiyorsak, a�
 0 1 * * * /auto-backup.sh
 ```
 
-Farklı zaman ayarlamaları için [şu linkten](https://crontab.guru/) cron job zaman ayarlamarının nasıl yapılacağı ile ilgili bilgi edinebilirsiniz.
+Farklı zaman ayarlamaları için [şu linkten](https://crontab.guru/) cron job zaman ayarlamalarının nasıl yapılacağı ile ilgili bilgi edinebilirsiniz.
 
 ### Kaynaklar
 
