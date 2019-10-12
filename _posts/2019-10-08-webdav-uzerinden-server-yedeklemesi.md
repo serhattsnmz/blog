@@ -73,8 +73,11 @@ EXCLUDE_DIRECTORY_COUNT=2
 
 # SON İKİ YEDEK DOSYASINI TUTUP DİĞERLERİNİ SİL
 TOTAL_DIRECTORY_COUNT=`ls $BACKUP_PATH | wc -l`
-INCLUDE_DIRECTORY_COUNT=$(( $TOTAL_DIRECTORY_COUNT - $EXCLUDE_DIRECTORY_COUNT ))
-ls $BACKUP_PATH | sort -nr | tail -n $INCLUDE_DIRECTORY_COUNT | xargs -i rm -rf $BACKUP_PATH/{}
+if [ $TOTAL_DIRECTORY_COUNT -gt $EXCLUDE_DIRECTORY_COUNT ]
+then
+    INCLUDE_DIRECTORY_COUNT=$(( $TOTAL_DIRECTORY_COUNT - $EXCLUDE_DIRECTORY_COUNT ))
+    ls $BACKUP_PATH | sort -nr | tail -n $INCLUDE_DIRECTORY_COUNT | xargs -i rm -rf $BACKUP_PATH/{}
+fi
 
 # YEDEK ALINACAK DOSYALARI SIKIŞTIRIP YEDEKLE
 CURRENT_DATE=`date +%F__%H-%M-%S`
@@ -98,6 +101,36 @@ Script dosyası çalıştırıldıktan sonra, alınan yedek dosyalarının ağa�
 ├── 2019-10-08__00-40-20
 │   ├── backup.z01
 │   └── backup.zip
+```
+
+Eğer yedeklerin dizin içinde parçalı zip halinde değil de, tek bir zip dosyası halinde yedeklenmesini istiyorsak, script dosyamızı aşağıdaki gibi değiştirebiliriz.
+
+```sh
+#!/bin/sh
+
+BACKUP_PATH="/backup"
+FILES_PATH="/important_files"
+EXCLUDE_DIRECTORY_COUNT=2
+
+# SON İKİ YEDEK DOSYASINI TUTUP DİĞERLERİNİ SİL
+TOTAL_DIRECTORY_COUNT=`ls $BACKUP_PATH | wc -l`
+if [ $TOTAL_DIRECTORY_COUNT -gt $EXCLUDE_DIRECTORY_COUNT ]
+then
+    INCLUDE_DIRECTORY_COUNT=$(( $TOTAL_DIRECTORY_COUNT - $EXCLUDE_DIRECTORY_COUNT ))
+    ls $BACKUP_PATH | sort -nr | tail -n $INCLUDE_DIRECTORY_COUNT | xargs -i rm -rf $BACKUP_PATH/{}
+fi
+
+# YEDEK ALINACAK DOSYALARI SIKIŞTIRIP YEDEKLE
+CURRENT_DATE=`date +%F__%H-%M-%S`
+zip -r $BACKUP_PATH/$CURRENT_DATE.zip $FILES_PATH
+```
+
+Bu şekilde alınan yedek dosyalarının ağaç görünümü de aşağıdaki gibi olacaktır:
+
+```
+/backup
+├── 2019-10-09__16-19-56.zip
+└── 2019-10-09__16-21-20.zip
 ```
 
 ## Otomatik Yedekleme İçin Cron Job Ayarlaması
