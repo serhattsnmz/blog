@@ -197,7 +197,7 @@ zip -s 200m -r $BACKUP_PATH/$CURRENT_DATE/backup.zip $FILES_PATH
 rclone sync -P $BACKUP_PATH yandex-yedek:backup
 
 # YANDEX ÇÖP KUTUSUNU BOŞALT
-rclone cleanup yandex-yede:
+rclone cleanup yandex-yedek:
 ```
 
 Dosyayı kaydedip çıktıktan sonra, dosyaya çalıştırma izni tanımlıyoruz.
@@ -245,7 +245,7 @@ zip -r $BACKUP_PATH/$CURRENT_DATE.zip $FILES_PATH
 rclone sync -P $BACKUP_PATH yandex-yedek:backup
 
 # YANDEX ÇÖP KUTUSUNU BOŞALT
-rclone cleanup yandex-yede:
+rclone cleanup yandex-yedek:
 ```
 
 Bu şekilde alınan yedek dosyalarının ağaç görünümü de aşağıdaki gibi olacaktır:
